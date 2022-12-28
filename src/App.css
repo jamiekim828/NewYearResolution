@@ -2,9 +2,15 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.resolution-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resolution-list h3 {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
