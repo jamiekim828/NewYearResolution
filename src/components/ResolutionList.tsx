@@ -16,7 +16,10 @@ export default function ResolutionList() {
         <div key={uuidv4()} className='resolution-list'>
           <h2>{r.title}</h2>
           <h3>{r.date}</h3>
-          <FavoriteBorderIcon />
+          <FavoriteBorderIcon
+            onClick={() => dispatch(actions.addFavorite(r))}
+            style={{ cursor: 'pointer' }}
+          />
           <DeleteOutlinedIcon
             onClick={() => dispatch(actions.deleteResolution(r))}
             style={{ cursor: 'pointer' }}
