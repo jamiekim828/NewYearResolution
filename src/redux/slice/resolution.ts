@@ -1,15 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Resolution } from '../../type/type';
 
 // type of the initial state
-type InitialStateType = {
+type InitialState = {
   resolution: Resolution[];
   favorite: Resolution[];
 };
 
 // declare initial state
-const initialState: InitialStateType = {
+const initialState: InitialState = {
   resolution: [],
   favorite: [],
 };
@@ -19,11 +19,13 @@ const resolutionSlice = createSlice({
   name: 'resolution',
   initialState,
   reducers: {
-    addResolution: (state, action) => {
+    addResolution: (state, action: PayloadAction<Resolution>) => {
       if (
         state.resolution.some((item) => item.title === action.payload.title)
       ) {
-        alert('This resolution is already exist');
+        alert('This resolution is already exist.');
+      } else if (!action.payload.title) {
+        alert('Please type a title.');
       } else {
         state.resolution.push(action.payload);
       }
@@ -32,9 +34,17 @@ const resolutionSlice = createSlice({
       state.resolution = state.resolution.filter(
         (item) => item.title !== action.payload.title
       );
+      state.favorite = state.favorite.filter(
+        (item) => item.title !== action.payload.title
+      );
     },
     addFavorite: (state, action) => {
       state.favorite.push(action.payload);
+    },
+    deleteFavorite: (state, action) => {
+      state.favorite = state.favorite.filter(
+        (item) => item.title !== action.payload.title
+      );
     },
   },
 });
