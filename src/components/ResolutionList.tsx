@@ -8,8 +8,11 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { actions } from '../redux/slice/resolution';
 
 export default function ResolutionList() {
+  // resolution state in the state
   const resolutionState = useSelector((state: RootState) => state.resolution);
+  // dispatch for actions
   const dispatch = useDispatch();
+
   return (
     <div>
       {resolutionState.resolution.map((r) => (

@@ -11,9 +11,11 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 export default function Form() {
+  // user input
   const [resolution, setResolution] = useState({ title: '', date: '' });
+  // date picker value
   const [value, setValue] = useState<Dayjs | null>(null);
-
+  // dispatch for actions
   const dispatch = useDispatch();
 
   const handleChange = (newValue: Dayjs | null) => {
@@ -25,8 +27,6 @@ export default function Form() {
   const handleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     setResolution({ ...resolution, title: event.target.value });
   };
-
-  console.log(resolution);
 
   return (
     <div>
@@ -54,7 +54,6 @@ export default function Form() {
           />
         </LocalizationProvider>
       </Box>
-
       <Button
         variant='contained'
         onClick={() => dispatch(actions.addResolution(resolution))}

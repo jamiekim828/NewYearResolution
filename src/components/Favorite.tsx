@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -6,8 +5,8 @@ import { RootState } from '../redux/store';
 
 export default function Favorite() {
   const favoriteState = useSelector((state: RootState) => state.resolution);
+  // declare favorites array in the state
   const favorites = favoriteState.favorite;
-  console.log(favorites);
 
   return (
     <div>
