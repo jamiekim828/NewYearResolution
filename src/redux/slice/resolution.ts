@@ -20,15 +20,7 @@ const resolutionSlice = createSlice({
   initialState,
   reducers: {
     addResolution: (state, action: PayloadAction<Resolution>) => {
-      if (
-        state.resolution.some((item) => item.title === action.payload.title)
-      ) {
-        alert('This resolution is already exist.');
-      } else if (!action.payload.title) {
-        alert('Please type a title.');
-      } else {
-        state.resolution.push(action.payload);
-      }
+      state.resolution.push(action.payload);
     },
     deleteResolution: (state, action) => {
       state.resolution = state.resolution.filter(
